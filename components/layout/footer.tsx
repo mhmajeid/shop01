@@ -36,8 +36,8 @@ const footer = () => {
           <div className='item-footer text-center'>
             <h3 className='text-lg font-semibold mb-4'>تحميل التطبيق</h3>
             <ul className='space-y-2'>
-              <li><a href="#"><img className="w-32 mx-auto" src="/app-store-badge.png" alt="تحميل من متجر التطبيقات" /></a></li>
-              <li><a href="#"><img className="w-32 mx-auto" src="/google-play-badge.png" alt="تحميل من جوجل بلاي" /></a></li>
+              <li><a href="#"><img className="w-32 mx-auto" src="./app-store-badge.png" alt="تحميل من متجر التطبيقات" /></a></li>
+              <li><a href="#"><img className="w-32 mx-auto" src="./google-play-badge.png" alt="تحميل من جوجل بلاي" /></a></li>
             </ul>
           </div>
         </div>
