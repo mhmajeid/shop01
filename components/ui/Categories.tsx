@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Autoplay,Navigation } from "swiper/modules";
 
 export type Category = {
   id: string;
@@ -25,15 +25,13 @@ export default function Categories({
   className = "",
 }: Props) {
   return (
-    <section className={`${className}`}>
+    <section className={`container mx-auto py-5 px-4 ${className}`}>
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">{title}</h2>
+        <h2 className="text-[22px] mb-5 font-semibold">{title}</h2>
       </div>
 
-
-
       <Swiper
-        modules={[Pagination, Autoplay]}
+        modules={[ Autoplay,Navigation ]}
         slidesPerView={1}
         spaceBetween={16}
         loop
@@ -46,7 +44,7 @@ export default function Categories({
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 40,
           },
           1024: {
@@ -54,15 +52,15 @@ export default function Categories({
             spaceBetween: 50,
           },
         }}
-        className="overflow-hidden"
+        className=""
       >
         {categories.map((cat) => (
           <SwiperSlide key={cat.id}>
-            <div className="relative h-72 sm:h-96">
+            <div className="relative">
               <Link
                 key={cat.id}
-                href={`/c/${cat.slug}`}
-                className="group overflow-hidden rounded-2xl border bg-white shadow-sm transition hover:shadow-md"
+                href={`/categorie/${cat.slug}`}
+                className="block overflow-hidden rounded bg-[#f6f8fe] text-center"
                 aria-label={`اذهب إلى قسم ${cat.name}`}
               >
                 <div className="relative aspect-square w-full">
@@ -75,7 +73,6 @@ export default function Categories({
                       className="object-cover transition group-hover:scale-[1.03]"
                     />
                   ) : (
-                    // بديل لو ما في صورة: خلفية تدرّج وحرف أول
                     <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
                       <span className="text-2xl font-semibold text-gray-700">
                         {cat.name.charAt(0)}
@@ -84,11 +81,9 @@ export default function Categories({
                   )}
                 </div>
 
-                <div className="flex items-center justify-between px-3 py-2">
-                  <span className="line-clamp-1 text-sm font-medium text-gray-900">
+                  <span className="py-3 block bg-transparent text-center text-gray-900">
                     {cat.name}
                   </span>
-                </div>
               </Link>
             </div>
           </SwiperSlide>

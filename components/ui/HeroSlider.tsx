@@ -21,7 +21,7 @@ type Props = {
 
 export default function HeroSwiper({ slides, className = "" }: Props) {
   return (
-    <section className={`relative ${className}`} aria-label="السلايدر">
+    <section className={`relative main-slider ${className}`} aria-label="السلايدر">
       <Swiper
         modules={[Pagination, Autoplay]}
         slidesPerView={1}
@@ -34,7 +34,7 @@ export default function HeroSwiper({ slides, className = "" }: Props) {
       >
         {slides.map((s) => (
           <SwiperSlide key={s.id}>
-            <div className="relative h-72 sm:h-96">
+            <div className="relative h-[200px] w-full md:h-[500px]">
               <Image
                 src={s.src}
                 alt={s.alt ?? ""}
@@ -43,7 +43,6 @@ export default function HeroSwiper({ slides, className = "" }: Props) {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
             </div>
           </SwiperSlide>
         ))}
